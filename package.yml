@@ -1,0 +1,20 @@
+package: community.lazycat.app.holyarrs
+version: 1.0.19
+name: HolyArrs
+description: "One self-hosted app for your shows, movies and music: library, requests, calendar and downloads."
+min_os_version: 1.5.0
+author: HolyArrs
+license: AGPL-3.0
+homepage: https://github.com/HolyArrs/HolyArrs
+
+locales:
+  zh:
+    name: "HolyArrs"
+    description: "集影视与音乐于一体的自托管媒体中心：媒体库、求片、日历与下载管理。"
+  en:
+    name: "HolyArrs"
+    description: "One self-hosted app for your shows, movies and music: library, requests, calendar and downloads."
+
+permissions:
+  required:
+    - net.internet

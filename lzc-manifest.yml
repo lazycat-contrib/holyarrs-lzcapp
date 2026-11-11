@@ -1,0 +1,36 @@
+application:
+  subdomain: holyarrs
+  multi_instance: false
+  public_path:
+    - /
+  upstreams:
+    - location: /
+      backend: http://holyarrs:6262/
+
+services:
+  holyarrs:
+    # upstream: docker.io/holyarrs/holyarrs:1.0.19
+    image: registry.lazycat.cloud/czyt/holyarrs/holyarrs:PLACEHOLDER
+    environment:
+      - TZ=Asia/Shanghai
+      - PUID=1000
+      - PGID=1000
+    binds:
+      - /lzcapp/var/config:/config
+      - /lzcapp/var/media/movies:/movies
+      - /lzcapp/var/media/tv:/tv
+      - /lzcapp/var/media/music:/music
+      - /lzcapp/var/downloads:/downloads
+    healthcheck:
+      test:
+        - CMD
+        - /holyarrs
+        - -healthcheck
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+usage: |
+  首次打开按向导初始化媒体库：在设置中把 /movies、/tv、/music 指为对应媒体库目录，
+  /downloads 是下载目录（可对接下载器）。数据库与配置保存在应用私有目录。
