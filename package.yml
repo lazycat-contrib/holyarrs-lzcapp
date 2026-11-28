@@ -1,5 +1,5 @@
 package: community.lazycat.app.holyarrs
-version: 1.3.4
+version: 1.3.6
 name: HolyArrs
 description: "One self-hosted app for your shows, movies and music: library, requests, calendar and downloads."
 min_os_version: 1.5.0
